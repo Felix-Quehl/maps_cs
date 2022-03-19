@@ -18,10 +18,10 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
      
     - name: Restore NuGet Packages
-      run: nuget restore
+      run: nuget restore .\maps.csproj
  
     - name: Build and Publish Web App
-      run: msbuild maps.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+      run: msbuild .\maps.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
