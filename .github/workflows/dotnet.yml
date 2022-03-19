@@ -13,20 +13,21 @@ jobs:
 
     steps:
     
-    - name: Checkout Code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      name: Checkout Code
       
-    - name: Setup .NET SDKs
-      uses: Elskom/setup-latest-dotnet@v1.1.2
+      
+    - uses: Elskom/setup-latest-dotnet@v1.1.2
+      name: Setup .NET SDKs
       with:
         VERSION_MAJOR: 4
         VERSION_MINOR: 8
 
     - name: Build Binaries
       run: dotnet build -c release
-          
-    - name: Upload Binaries
+    
     - uses: actions/upload-artifact@v2
+      name: Upload Binaries
       with:
         name: maps_tool_binaries
         path: .\Maps\bin\release\net4.8\
