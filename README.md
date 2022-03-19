@@ -1,6 +1,6 @@
 # Maps Tool
 
-This tool can download tailes from a Open Street Map Tiles Server and render them into a single PNG.
+This tool can download tiles from a Open Street Map Tiles Server and render them into a single PNG.
 
 ## How to use it
 
