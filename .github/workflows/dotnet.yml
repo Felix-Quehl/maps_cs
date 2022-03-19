@@ -1,0 +1,15 @@
+name: Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: EasyDesk/action-dotnet-build@v1
+        with:
+          build-configuration: Release
