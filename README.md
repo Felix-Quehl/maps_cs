@@ -8,7 +8,7 @@ This tool can download tiles from a Open Street Map Tiles Server and render them
 .\maps.exe `
     --name=ukrain.png `
     --server=https://tile.openstreetmap.org `
-    --cache=openstreetmap `
+    --cache=cache_openstreetmap `
     --zoom=10 `
     --top=53 `
     --bottom=44 `
