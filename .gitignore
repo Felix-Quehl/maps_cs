@@ -1,0 +1,11 @@
+# meta
+.vscode
+
+# artifacts
+**/bin
+**/obj
+
+# temp data
+**/cache_*
+*.png
+*.ps1
