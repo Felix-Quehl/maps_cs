@@ -30,4 +30,4 @@ jobs:
       name: Upload Binaries
       with:
         name: maps_tool_binaries
-        path: .\Maps\bin\release\net4.8\
+        path: .\bin\release\net4.8\
