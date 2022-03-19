@@ -1,23 +1,30 @@
-name: Pipeline
-
-on:
-  push:
-    branches: [ main ]
-
+name: Build Maps Tool
+ 
+on: [push]
+ 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+ 
+    runs-on: windows-latest
+ 
     steps:
-      - uses: EasyDesk/action-dotnet-build@v1
-        with:
-          # (Optional) Additional arguments for dotnet build.
-          build-args: -v normal
-
-          # (Optional) Build configuration, defaults to 'Release'
-          # If the version starts with the 'v' prefix, it will be removed to conform to the requirements of dotnet pack.
-          build-configuration: Release
-
-          # (Optional) The path of the project to build; if omitted, the whole solution is built
-          path: ./maps.csproj
+    - uses: actions/checkout@v1
+      name: Checkout Code
+     
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+       
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+     
+    - name: Restore NuGet Packages
+      run: nuget restore
+ 
+    - name: Build and Publish Web App
+      run: msbuild maps.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+ 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: publish
+        path: bin\Release\Publish
