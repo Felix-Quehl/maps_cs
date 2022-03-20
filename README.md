@@ -6,7 +6,7 @@ This tool can download tiles from a Open Street Map Tiles Server and render them
 
 ```powershell
 .\maps.exe `
-    --name=ukrain.png `
+    --name=ukraine.png `
     --server=https://tile.openstreetmap.org `
     --cache=cache_openstreetmap `
     --zoom=10 `
